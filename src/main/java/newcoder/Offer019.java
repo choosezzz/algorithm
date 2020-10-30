@@ -1,7 +1,5 @@
 package main.java.newcoder;
 
-import com.alibaba.fastjson.JSONObject;
-
 import java.util.ArrayList;
 
 /**
@@ -76,8 +74,6 @@ public class Offer019 {
         int[][] arr = {{1},{2},{3},{4}};
         //result = [1,2,3,4,5]
         ArrayList<Integer> result = instance.printMatrix(matrix);
-        System.out.println(JSONObject.toJSONString(result));
-        System.out.println(JSONObject.toJSONString(instance.printMatrix(arr)));
     }
 
 }

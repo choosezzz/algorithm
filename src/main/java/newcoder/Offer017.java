@@ -16,7 +16,6 @@ public class Offer017 {
 
         public TreeNode(int val) {
             this.val = val;
-
         }
 
     }
@@ -29,7 +28,7 @@ public class Offer017 {
      * @param b
      * @return
      */
-    public boolean HasSubtree(TreeNode a, TreeNode b) {
+    public boolean hasSubtree(TreeNode a, TreeNode b) {
         if (a == null || b == null) {
             return false;
         }

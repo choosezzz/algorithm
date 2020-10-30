@@ -23,20 +23,22 @@ public class Offer018 {
     /**
      * 运行时间：28ms
      * 占用内存：9888k
+     *
      * @param root
      */
     public void Mirror(TreeNode root) {
         mirror(root);
     }
 
-    private TreeNode mirror(TreeNode root) {
-
+    public TreeNode mirror(TreeNode root) {
         if (root == null) {
             return null;
         }
+
         TreeNode left = root.left;
         root.left = mirror(root.right);
         root.right = mirror(left);
+
         return root;
     }
 }
