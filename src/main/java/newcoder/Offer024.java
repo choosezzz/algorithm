@@ -1,8 +1,10 @@
 package main.java.newcoder;
 
 import main.java.common.TreeNode;
+import netscape.security.UserTarget;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * @Author dingshuangen
@@ -17,6 +19,7 @@ public class Offer024 {
     /**
      * 运行时间：13ms
      * 占用内存：9788k
+     *
      * @param root
      * @param target
      * @return
@@ -29,9 +32,10 @@ public class Offer024 {
 
     /**
      * 深度优先遍历 前序遍历
+     *
      * @param root
      * @param target
-     * @param path 保存路径节点的list
+     * @param path   保存路径节点的list
      */
     public void dfs(TreeNode root, int target, ArrayList<Integer> path) {
 
@@ -52,5 +56,25 @@ public class Offer024 {
         }
         //遍历叶子节点不满足要求则进行回退
         path.remove(path.size() - 1);
+    }
+
+    private Stack<Integer> path = new Stack<>();
+    private ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+
+    public ArrayList<ArrayList<Integer>> findPath(TreeNode root, int target) {
+        if (root == null) {
+            return list;
+        }
+        path.push(root.val);
+        target -= root.val;
+        if (target == 0 && root.left == null && root.right == null) {
+            list.add(new ArrayList<>(path));
+        } else {
+            findPath(root.left, target);
+            findPath(root.right, target);
+        }
+        path.pop();
+
+        return list;
     }
 }
