@@ -1,8 +1,6 @@
-package main.java.newcoder;
+package newcoder;
 
-import main.java.common.TreeNode;
-import netscape.security.UserTarget;
-
+import common.TreeNode;
 import java.util.ArrayList;
 import java.util.Stack;
 

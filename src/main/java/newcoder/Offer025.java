@@ -1,6 +1,6 @@
-package main.java.newcoder;
+package newcoder;
 
-import main.java.common.RandomListNode;
+import common.RandomListNode;
 
 import java.util.HashMap;
 

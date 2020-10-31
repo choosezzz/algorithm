@@ -1,6 +1,6 @@
-package main.java.newcoder;
+package newcoder;
 
-import main.java.common.TreeNode;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package main.java.newcoder;
+package newcoder;
 
 import java.util.ArrayList;
 
