@@ -20,7 +20,6 @@ public class Offer041 {
     /**
      * 运行时间：14ms
      * 占用内存：9764k
-     * 
      * @param sum
      * @return
      */
