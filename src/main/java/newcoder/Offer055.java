@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @Date 2020/11/3 23:07
  * 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
  */
-public class Offer056 {
+public class Offer055 {
 
     /**
      * 运行时间：13ms
