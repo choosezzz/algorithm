@@ -27,8 +27,9 @@ public class Offer041 {
 
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
 
+        //从1开始，直到sum/2。因为超过半数之后，两个连续数之和必大于sum
         int num = 1;
-        while (num <= sum) {
+        while (num <= sum/2) {
             ArrayList<Integer> list = new ArrayList<>();
             int start = num;
             int total = 0;
@@ -49,6 +50,6 @@ public class Offer041 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Offer041().FindContinuousSequence(1));
+        System.out.println(new Offer041().FindContinuousSequence(588));
     }
 }
