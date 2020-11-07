@@ -35,7 +35,7 @@ public class Offer065 {
         //遍历二维数组
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                //从二维数组顶点开始查找目标字符数组
+                //从二维数组任意一点开始查找目标字符数组
                 if (helper(matrix, rows, cols, i, j, str, 0, flag)) {
                     return true;
                 }
