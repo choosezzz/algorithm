@@ -28,6 +28,7 @@ public class Offer066 {
         }
         //记录每个格子是否已走过
         int[][] flag = new int[rows][cols];
+        //从格子左上角出发
         return dfs(0, 0, threshold, rows - 1, cols - 1, flag);
     }
 
