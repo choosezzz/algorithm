@@ -20,6 +20,7 @@ public class Offer041 {
     /**
      * 运行时间：14ms
      * 占用内存：9764k
+     *
      * @param sum
      * @return
      */
@@ -29,7 +30,7 @@ public class Offer041 {
 
         //从1开始，直到sum/2。因为超过半数之后，两个连续数之和必大于sum
         int num = 1;
-        while (num <= sum/2) {
+        while (num <= (sum >> 1)) {
             ArrayList<Integer> list = new ArrayList<>();
             int start = num;
             int total = 0;
@@ -40,7 +41,7 @@ public class Offer041 {
                     res.add(list);
                     break;
                 }
-                if (total > sum){
+                if (total > sum) {
                     break;
                 }
             }
