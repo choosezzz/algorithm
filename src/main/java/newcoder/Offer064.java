@@ -30,7 +30,9 @@ public class Offer064 {
         if (num == null || num.length < size || size <= 0) {
             return res;
         }
+        //窗口外指针
         int p1 = 0;
+        //窗口内指针
         int p2 = 0;
         while (p2 <= num.length - size) {
             int max = num[p2++];
@@ -40,7 +42,9 @@ public class Offer064 {
                 }
             }
             res.add(max);
+            //窗口向后移动
             p1++;
+            //窗口内指针移动至窗口起点
             p2 = p1;
         }
         return res;
