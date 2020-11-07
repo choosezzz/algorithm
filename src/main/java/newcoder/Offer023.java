@@ -45,7 +45,7 @@ public class Offer023 {
         //右子树序列的开始位置
         int index = start;
         int root = arr[end];
-        //遍历左子树序列
+        //左子树全部小于根节点，找到左子树的范围
         while (arr[index] < root) {
             index++;
         }
@@ -57,6 +57,7 @@ public class Offer023 {
             }
         }
 
+        //递归验证左子树和右子树是否符合二叉树后序遍历的规则
         return judge(arr, start, index - 1) && judge(arr, index, end - 1);
 
     }
