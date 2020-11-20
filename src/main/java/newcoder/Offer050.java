@@ -114,7 +114,7 @@ public class Offer050 {
             while (nums[i] != i) {
 
                 if (nums[i] == nums[nums[i]]) {
-                    duplication[0] = nums[i]; 
+                    duplication[0] = nums[i];
                     return true;
                 }
 
