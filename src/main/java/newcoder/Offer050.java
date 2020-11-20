@@ -76,26 +76,50 @@ public class Offer050 {
     }
 
     /**
-     * 归为法：因为n个数字范围都为0-n，则将num[i]与值为i-1的元素进行交换，直到发现num[i]==num[num[i]]
+     * 归位法：因为n个数字范围都为0-n，则将num[i]与值为i-1的元素进行交换，直到发现num[i]==num[num[i]]
      *
-     * @param numbers
+     * @param nums
      * @param length
      * @param duplication
      * @return
      */
     public boolean duplicate3(int[] nums, int length, int[] duplication) {
 
-        if (length < 2) {
+        if (nums == null || length < 2) {
             return false;
         }
+        //将nums[i]的值修改为i
         for (int i = 0; i < length; i++) {
             while (nums[i] != i) {
                 if (nums[i] == nums[nums[i]]) {
                     duplication[0] = nums[i];
                     return true;
                 }
-                // swap
+                // 将num[i]放回到正确的位置 nums[nums[i]]=nums[i]
                 int tmp = nums[i];
+                nums[i] = nums[tmp];
+                nums[tmp] = tmp;
+            }
+        }
+        return false;
+    }
+
+    public boolean duplicate4(int[] nums, int length, int[] duplication) {
+
+        if (nums == null || length < 2) {
+            return false;
+        }
+
+        for (int i = 0; i < length; i++) {
+            while (nums[i] != i) {
+
+                if (nums[i] == nums[nums[i]]) {
+                    duplication[0] = nums[i]; 
+                    return true;
+                }
+
+                int tmp = nums[i];
+
                 nums[i] = nums[tmp];
                 nums[tmp] = tmp;
             }
