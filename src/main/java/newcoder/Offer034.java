@@ -51,7 +51,8 @@ public class Offer034 {
         if (str == null || str.isEmpty()) {
             return -1;
         }
-        int[] count = new int[256];
+        //ASCII 码只有 128 个字符
+        int[] count = new int[128];
         char[] chars = str.toCharArray();
         for (char c : chars) {
             count[c]++;
