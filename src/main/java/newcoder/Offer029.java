@@ -50,22 +50,26 @@ public class Offer029 {
      */
     public ArrayList<Integer> solution_2(int[] input, int k) {
 
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+
+        //大顶堆（默认小顶堆）
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(((o1, o2) -> o2-o1));
         for (int ele : input) {
-            //小于k时直接入队
-            if (queue.size() < k) {
-                queue.add(ele);
-                continue;
+            maxHeap.add(ele);
+            if (maxHeap.size() > k){
+                maxHeap.poll();
             }
-            //大于k时，判断新元素是否小于队首，小于的话则入队，同时弹出队首元素
-            if (ele < queue.peek()) {
-                queue.poll();
-                queue.add(ele);
-            }
-
         }
-        return new ArrayList<>(queue);
+        return new ArrayList<>(maxHeap);
 
+    }
+
+    public static void main(String[] args) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(((o1, o2) -> o2-o1));
+        queue.add(3);
+        queue.add(2);
+        queue.add(4);
+        queue.add(1);
+        System.out.println();
     }
 
 }
