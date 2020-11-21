@@ -18,12 +18,13 @@ public class Offer025 {
      * 借助HashMap存储每个节点值对应新的节点
      * 运行时间：13ms
      * 占用内存：9680k
+     *
      * @param pHead
      * @return
      */
-    public RandomListNode clone(RandomListNode pHead){
+    public RandomListNode clone(RandomListNode pHead) {
 
-        if (pHead == null){
+        if (pHead == null) {
             return null;
         }
 
@@ -37,8 +38,8 @@ public class Offer025 {
         HashMap<Integer, RandomListNode> nodeMap = new HashMap<>();
         nodeMap.put(pHead.label, copyHead);
         //复制链表next结构
-        while (point != null){
-            if (point.next != null){
+        while (point != null) {
+            if (point.next != null) {
                 node.next = new RandomListNode(point.next.label);
                 nodeMap.put(point.next.label, node.next);
                 node = node.next;
@@ -48,7 +49,7 @@ public class Offer025 {
 
         point = pHead;
         node = copyHead;
-        while (point != null){
+        while (point != null) {
             node.random = point.random == null ? null : nodeMap.get(point.random.label);
             node = node.next;
             point = point.next;
@@ -102,5 +103,50 @@ public class Offer025 {
         }
 
         return copyHead;
+    }
+
+    /**
+     *
+     * 运行时间：14ms
+     *
+     * 占用内存：9732k
+     * 1.在每个节点后面插入相同的一个复制节点
+     * 2.关联随机节点指针
+     * 3.拆分链表
+     *
+     * @param pHead
+     * @return
+     */
+    public RandomListNode Clone_1(RandomListNode pHead) {
+        if (pHead == null) {
+            return null;
+        }
+
+        RandomListNode curr = pHead;
+        //在原链表每个节点后面插入相同节点
+        while (curr != null) {
+            RandomListNode node = new RandomListNode(curr.label);
+            node.next = curr.next;
+            curr.next = node;
+            curr = node.next;
+        }
+        //关联随机指针
+        curr = pHead;
+        while (curr != null) {
+            if (curr.random != null) {
+                curr.next.random = curr.random.next;
+            }
+            curr = curr.next.next;
+        }
+
+        //拆分链表
+        RandomListNode copy = pHead.next;
+        curr = pHead;
+        while (curr.next != null) {
+            RandomListNode next = curr.next;
+            curr.next = next.next;
+            curr = next;
+        }
+        return copy;
     }
 }
