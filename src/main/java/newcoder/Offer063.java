@@ -2,6 +2,7 @@ package newcoder;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.PriorityQueue;
 
 /**
  * @Author dingshuangen
@@ -24,8 +25,9 @@ public class Offer063 {
 
     /**
      * 运行时间：14ms
-     *
+     * <p>
      * 占用内存：9900k
+     *
      * @return
      */
     public Double GetMedian() {
@@ -39,6 +41,35 @@ public class Offer063 {
             return (double) buffer.get(size / 2);
         }
         return (buffer.get(size / 2) + buffer.get(size / 2 - 1)) / 2.0;
+    }
+
+    /**
+     * 大顶堆存储左半边元素
+     */
+    PriorityQueue<Integer> left = new PriorityQueue<>(((o1, o2) -> o2 - o1));
+    /**
+     * 小顶堆存储右半边元素，同时右半边元素大于左半边
+     */
+    PriorityQueue<Integer> right = new PriorityQueue<>(((o1, o2) -> o2 - o1));
+    int n = 0;
+    public void insert(Integer integer){
+
+        if (n % 2 == 0){
+            left.add(integer);
+            right.add(left.poll());
+        }else {
+            right.add(integer);
+            left.add(right.poll());
+        }
+
+        n++;
+    }
+
+    public Double getMedian(){
+        if (n % 2 == 0){
+            return (left.peek() + right.peek())/2.0;
+        }
+        return (double)right.peek();
     }
 
 }
