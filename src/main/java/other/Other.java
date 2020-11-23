@@ -30,10 +30,8 @@ public class Other {
                 continue;
             }
             start++;
-            end = start+1;
+            end = start;
             count = new int[128];
-            count[str.charAt(start)]++;
-
         }
         return str.substring(finalStart, finalEnd);
     }
