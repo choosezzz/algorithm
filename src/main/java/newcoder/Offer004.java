@@ -45,7 +45,7 @@ public class Offer004 {
         }
         return root;
     }
-    
+
     private int preIndex = 0;
     private int inIndex = 0;
 
