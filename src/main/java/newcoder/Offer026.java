@@ -48,4 +48,24 @@ public class Offer026 {
         list.add(root);
         inOrder(root.right, list);
     }
+
+    TreeNode head = null;
+    TreeNode pre = null;
+    public void inOrder2(TreeNode node){
+        if (node == null){
+            return;
+        }
+        inOrder2(node.left);
+        //关联前后指针
+        node.left = pre;
+        if (pre != null){
+            pre.right = node;
+        }
+        if (head == null){
+            head = node;
+        }
+        //移动前一个节点位置
+        pre = node;
+        inOrder2(node.right);
+    }
 }
