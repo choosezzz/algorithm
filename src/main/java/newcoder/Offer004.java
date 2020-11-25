@@ -45,18 +45,20 @@ public class Offer004 {
         }
         return root;
     }
-
+    
     private int preIndex = 0;
     private int inIndex = 0;
 
     public TreeNode buildTree(int[] pre, int[] in) {
 
+        //中序遍历的结束节点为null
         return dfs(pre, in, null);
     }
 
     /**
-     * ???????不懂
+     * 深度优先遍历
      *
+     * 将中序遍历结果用根节点分开，左边为左子树，右边为右子树
      * @param pre
      * @param in
      * @param lastRoot
@@ -66,14 +68,14 @@ public class Offer004 {
 
         //退出条件
         //1.遍历完先序集合
-        //2.当前根节点为叶子节点
+        //2.当前根节点为中序遍历的终止节点（根节点或者最右节点）
         if (preIndex == pre.length || (lastRoot != null && in[inIndex] == lastRoot.val)) {
             return null;
         }
         //先序遍历：根左右，根节点为先序遍历的第一个节点
         TreeNode root = new TreeNode(pre[preIndex]);
 
-        //遍历左子树，根节点的左节点当做根节点
+        //遍历左子树，根节点为左子树中序遍历的终止节点
         preIndex++;
         root.left = dfs(pre, in, root);
 
