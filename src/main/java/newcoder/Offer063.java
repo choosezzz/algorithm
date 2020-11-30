@@ -50,7 +50,7 @@ public class Offer063 {
     /**
      * 小顶堆存储右半边元素，同时右半边元素大于左半边
      */
-    PriorityQueue<Integer> right = new PriorityQueue<>(((o1, o2) -> o2 - o1));
+    PriorityQueue<Integer> right = new PriorityQueue<>();
     int n = 0;
     public void insert(Integer integer){
 
@@ -72,4 +72,14 @@ public class Offer063 {
         return (double)right.peek();
     }
 
+    public static void main(String[] args) {
+        Offer063 instance = new Offer063();
+        instance.insert(1);
+        instance.insert(2);
+        instance.insert(3);
+        instance.insert(4);
+        instance.insert(5);
+        instance.insert(6);
+        System.out.println(instance.getMedian());
+    }
 }
