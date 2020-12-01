@@ -4,7 +4,7 @@ package other;
  * @Author dingshuangen
  * @Date 2020/11/22 17:20
  */
-public class Other {
+public class MaxSubString {
 
     public static String getMaxSubStr(String str) {
 
