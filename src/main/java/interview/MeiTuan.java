@@ -1,11 +1,11 @@
-package other;
+package interview;
 
 /**
  * @Author dingshuangen
  * @Date 2020/11/22 17:20
+ * 美团一面，最长不重复子串
  */
-public class MaxSubString {
-
+public class MeiTuan {
     public static String getMaxSubStr(String str) {
 
         if (str == null || str.length() <= 0) {
